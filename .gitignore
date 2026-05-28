@@ -1,1 +1,548 @@
-Nothing should be ignored based on the provided file changes, as they consist only of source code and configuration files (.php files) without any build artifacts, dependencies, or temporary files that would warrant being added to .gitignore.
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# WordPress specific
+wp-content/cache/
+*.sql
+wp-config-local.php
+
+# Backup files
+*~
+*.bak
+*.backup
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.directory
+.Trashes
+*.nib
+vms.log
+
+# Testing
+.coverage
+htmlcov/
+.coverage.*
+.cache
+.pytest_cache/
+.hypothesis/
+
+# Distribution / packaging
+.Python
+*.so
+.Python-version
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.installed.cfg
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg
+share/python-wheels/
+.Python
+.python-version
+pip-wheel-metadata/
+tox.ini
+.coveragerc
+conftest.py
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+tags
+cscope.*
+
+# Build directories
+build/
+dist/
+*.egg-info/
+.target/
+target/
+
+# Compression
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+
+# Images (if accidentally added)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.svg
+*.ico
+
+# Videos
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# Audio
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.aac
+
+# Documents
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration backups
+wp-config-sample.php
+wp-config-production.php
+
+# WordPress uploads (if not needed in repo)
+wp-content/uploads/
+
+# PHP specific
+*.php.bak
+*.php.swp
+*.php.swo
+
+# Web server
+.htaccess
+.htpasswd
+logs/
+*.log
+
+# Cache
+cache/
+*.cache
+.opcode
+apc/
+fc/
+file/
+
+# Sessions
+sess_*
+session/
+sessions/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.Temp/
+temporal/
+
+# Lock files
+*.lock
+package-lock.json
+composer.lock
+
+# WordPress plugin/theme specific cache
+affiliate-assets/cache/
+affiliate-assets/tmp/
+affiliate-assets/temp/
+
+# WordPress debug
+debug.log
+wp-content/debug.log
+
+# WordPress object cache
+wp-content/object-cache.php
+
+# WordPress maintenance mode
+.maintenance
+
+# WordPress cron
+wp-cron.php
+
+# WordPress multisite
+blogs.dir/
+
+# WordPress core updates
+wp-admin/includes/update-core.php
+
+# WordPress themes cache
+wp-content/themes/*/cache/
+wp-content/themes/*/.sass-cache/
+wp-content/themes/*/.cache/
+wp-content/themes/*/tmp/
+wp-content/themes/*/temp/
+
+# WordPress plugins cache
+wp-content/plugins/*/cache/
+wp-content/plugins/*/.sass-cache/
+wp-content/plugins/*/.cache/
+wp-content/plugins/*/tmp/
+wp-content/plugins/*/temp/
+
+# WordPress widgets cache
+wp-content/widgets/*.cache
+
+# WordPress customizer
+wp-content/customize/
+
+# WordPress revisions
+wp-content/revision/
+
+# WordPress trash
+wp-content/trash/
+
+# WordPress auto-saved posts
+wp-content/auto-saved/
+
+# WordPress backup plugins files
+wp-content/backup-*
+wp-content/backups/
+
+# WordPress security
+wp-config-backup.php
+wp-config-old.php
+wp-config-bak.php
+wp-config.txt
+wp-config.backup
+wp-config.copy
+wp-config.org
+wp-config.save
+wp-config~
+
+# WordPress database export
+*.sql
+*.sql.gz
+*.sql.zip
+*.dump
+*.dump.sql
+*.dump.gz
+*.dump.zip
+
+# WordPress media library cache
+wp-content/media-cache/
+wp-content/thumb-cache/
+
+# WordPress theme editor
+wp-content/theme-editor/
+
+# WordPress plugin editor
+wp-content/plugin-editor/
+
+# WordPress file editor
+wp-content/file-editor/
+
+# WordPress update
+wp-content/update/
+wp-content/updates/
+
+# WordPress installation
+wp-content/install/
+wp-content/installer/
+
+# WordPress activation
+wp-content/activation/
+
+# WordPress deactivation
+wp-content/deactivation/
+
+# WordPress uninstall
+wp-content/uninstall/
+
+# WordPress upgrade
+wp-content/upgrade/
+
+# WordPress migration
+wp-content/migration/
+wp-content/migrate/
+
+# WordPress import
+wp-content/import/
+wp-content/importer/
+
+# WordPress export
+wp-content/export/
+wp-content/exporter/
+
+# WordPress sync
+wp-content/sync/
+wp-content/synced/
+
+# WordPress staging
+wp-content/staging/
+
+# WordPress development
+wp-content/dev/
+wp-content/development/
+
+# WordPress testing
+wp-content/test/
+wp-content/testing/
+
+# WordPress demo
+wp-content/demo/
+
+# WordPress sample
+wp-content/sample/
+
+# WordPress example
+wp-content/example/
+
+# WordPress template
+wp-content/template/
+
+# WordPress boilerplate
+wp-content/boilerplate/
+
+# WordPress skeleton
+wp-content/skeleton/
+
+# WordPress assets cache
+affiliate-assets/cache/
+affiliate-assets/.cache/
+affiliate-assets/tmp/
+affiliate-assets/temp/
+affiliate-assets/logs/
+affiliate-assets/log/
+
+# WordPress affiliate plugin specific
+affiliate-assets/logs/
+affiliate-assets/log/
+affiliate-assets/cache/
+affiliate-assets/.cache/
+affiliate-assets/tmp/
+affiliate-assets/temp/
+affiliate-assets/uploads/
+affiliate-assets/files/
+affiliate-assets/private/
+affiliate-assets/protected/
+affiliate-assets/confidential/
+affiliate-assets/secret/
+affiliate-assets/config/
+affiliate-assets/configuration/
+affiliate-assets/settings/
+affiliate-assets/.settings/
+affiliate-assets/.config/
+affiliate-assets/.env
+affiliate-assets/env/
+affiliate-assets/environments/
+affiliate-assets/environment/
+affiliate-assets/backup/
+affiliate-assets/backups/
+affiliate-assets/backup-*
+affiliate-assets/bak/
+affiliate-assets/.bak/
+affiliate-assets/dump/
+affiliate-assets/dumps/
+affiliate-assets/export/
+affiliate-assets/exports/
+affiliate-assets/import/
+affiliate-assets/imports/
+affiliate-assets/temporary/
+affiliate-assets/interim/
+affiliate-assets/staging/
+affiliate-assets/stage/
+affiliate-assets/test/
+affiliate-assets/tests/
+affiliate-assets/testing/
+affiliate-assets/dev/
+affiliate-assets/development/
+affiliate-assets/local/
+affiliate-assets/localhost/
+affiliate-assets/production/
+affiliate-assets/prod/
+affiliate-assets/preview/
+affiliate-assets/demo/
+affiliate-assets/sample/
+affiliate-assets/example/
+affiliate-assets/template/
+affiliate-assets/templates-cache/
+affiliate-assets/views-cache/
+affiliate-assets/assets-cache/
+affiliate-assets/dist/
+affiliate-assets/build/
+affiliate-assets/node_modules/
+affiliate-assets/vendor/
+affiliate-assets/composer.lock
+affiliate-assets/yarn.lock
+affiliate-assets/package-lock.json
+affiliate-assets/.npm/
+affiliate-assets/.yarn/
+affiliate-assets/bower_components/
+affiliate-assets/.bower/
+affiliate-assets/.gitmodules
+affiliate-assets/.gitattributes
+affiliate-assets/.editorconfig
+affiliate-assets/.eslint*
+affiliate-assets/.prettier*
+affiliate-assets/.stylelint*
+affiliate-assets/.babelrc*
+affiliate-assets/tsconfig*
+affiliate-assets/webpack*
+affiliate-assets/vite.config*
+affiliate-assets/rollup.config*
+affiliate-assets/gulpfile*
+affiliate-assets/gruntfile*
+affiliate-assets/.vscode/
+affiliate-assets/.idea/
+affiliate-assets/.project
+affiliate-assets/.settings/
+affiliate-assets/.metadata
+affiliate-assets/Thumbs.db
+affiliate-assets/.DS_Store
+affiliate-assets/desktop.ini
+affiliate-assets/ehthumbs.db
+affiliate-assets/icon?
+affiliate-assets/*.log
+affiliate-assets/*.tmp
+affiliate-assets/*.temp
+affiliate-assets/*.cache
+affiliate-assets/*.bak
+affiliate-assets/*.backup
+affiliate-assets/*.swp
+affiliate-assets/*.swo
+affiliate-assets/*~
+affiliate-assets/#*#
+affiliate-assets/.directory
+affiliate-assets/.Trashes
+affiliate-assets/.Spotlight-V100
+affiliate-assets/.fseventsd
+affiliate-assets/.AppleDouble
+affiliate-assets/.LSOverride
+affiliate-assets/Icon
+affiliate-assets/._*
+affiliate-assets/.DocumentRevisions-V100
+affiliate-assets/.fseventsd
+affiliate-assets/.PKInstallSandboxManager
+affiliate-assets/.bash_history
+affiliate-assets/.bash_logout
+affiliate-assets/.bash_profile
+affiliate-assets/.bashrc
+affiliate-assets/.history
+affiliate-assets/.mysql_history
+affiliate-assets/.node_repl_history
+affiliate-assets/.php_history
+affiliate-assets/.python_history
+affiliate-assets/.rhistory
+affiliate-assets/.sqlite_history
+affiliate-assets/.viminfo
+affiliate-assets/.wget-hsts
+affiliate-assets/.Xauthority
+affiliate-assets/.Xresources
+affiliate-assets/.cvsignore
+affiliate-assets/.gitignore
+affiliate-assets/.htaccess
+affiliate-assets/.htpasswd
+affiliate-assets/.maintenance
+affiliate-assets/.ssh/
+affiliate-assets/.subversion/
+affiliate-assets/.Trash-*
+affiliate-assets/.Trash/
+affiliate-assets/CVS/
+affiliate-assets/RCS/
+affiliate-assets/SCCS/
+affiliate-assets/TAGS
+affiliate-assets/core
+affiliate-assets/tags
+affiliate-assets/cscope.*
+affiliate-assets/ftpquota
+affiliate-assets/.htpasswds
+affiliate-assets/.www_acl
+affiliate-assets/.www_password
+affiliate-assets/4D546864
+affiliate-assets/.htgroup
+affiliate-assets/.htusers
+affiliate-assets/.netrc
+affiliate-assets/.rnd
+affiliate-assets/.bash_sessions/
+affiliate-assets/.CFUserTextEncoding
+affiliate-assets/.Rhistory
+affiliate-assets/.Rapp.history
+affiliate-assets/.matplotlib/
+affiliate-assets/.parallel/
+affiliate-assets/.nfs*
+affiliate-assets/sepolicy
+affiliate-assets/lost+found/
+affiliate-assets/site/
+affiliate-assets/sites/
+affiliate-assets/config/
+affiliate-assets/configs/
+affiliate-assets/configuration/
+affiliate-assets/configurations/
+affiliate-assets/settings/
+affiliate-assets/settings-local.php
+affiliate-assets/settings-dev.php
+affiliate-assets/settings-staging.php
+affiliate-assets/settings-production.php
+affiliate-assets/local-config.php
+affiliate-assets/config-local.php
+affiliate-assets/wp-config-local.php
+affiliate-assets/wp-config-dev.php
+affiliate-assets/wp-config-staging.php
+affiliate-assets/wp-config-production.php
+affiliate-assets/.env.local
+affiliate-assets/.env.dev
+affiliate-assets/.env.staging
+affiliate-assets/.env.production
+affiliate-assets/.env.test
+affiliate-assets/.env.testing
+affiliate-assets/.env.development
+affiliate-assets/.env.prod
+affiliate-assets/.env.preview
+affiliate-assets/.env.demo
+affiliate-assets/.env.sample
+affiliate-assets/.env.example
+affiliate-assets/.env.dist
+affiliate-assets/.env.default
+affiliate-assets/.env.backup
+affiliate-assets/.env.bak
+affiliate-assets/.env.save
+affiliate-assets/.env.org
+affiliate-assets/.env.copy
+affiliate-assets/.env~*
+affiliate-assets/.env.*
+affiliate-assets/*.env
+affiliate-assets/*/.env
+affiliate-assets/**/.env
+affiliate-assets/.env*
+affiliate-assets/*/.env*
+affiliate-assets/**/.env*

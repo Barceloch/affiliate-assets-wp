@@ -371,3 +371,30 @@ function aa_get_qr_code_download_url($referral_url, $format = 'png') {
         'format' => $format,
     ), admin_url('admin-ajax.php'));
 }
+
+/**
+ * Get membership product ID from settings.
+ *
+ * @return int
+ */
+function aa_get_membership_product_id() {
+    return absint( get_option( 'aa_membership_product_id', 0 ) );
+}
+
+/**
+ * Get referral URL for a given referral code.
+ *
+ * @param string $referral_code Referral code.
+ * @return string
+ */
+function aa_get_referral_url( $referral_code ) {
+    $settings = get_option( 'aa_settings', array() );
+    $enable_pretty_urls = isset( $settings['aa_enable_pretty_urls'] ) ? $settings['aa_enable_pretty_urls'] : 0;
+    
+    if ( $enable_pretty_urls ) {
+        $referral_slug = isset( $settings['aa_referral_slug'] ) ? $settings['aa_referral_slug'] : 'referido';
+        return home_url( '/' . trailingslashit( $referral_slug ) . $referral_code . '/' );
+    }
+    
+    return add_query_arg( 'aa_ref', $referral_code, home_url() );
+}
