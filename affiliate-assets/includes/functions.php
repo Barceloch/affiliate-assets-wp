@@ -292,3 +292,82 @@ function aa_get_commission_rate($product_id = 0) {
     // In Phase 2, we'll check product-specific rates
     return floatval(isset($settings['aa_default_commission_rate']) ? $settings['aa_default_commission_rate'] : 10);
 }
+
+/**
+ * Get affiliate by user ID.
+ *
+ * @param int $user_id User ID.
+ * @return \AffiliateAssets\Includes\Class_Affiliate|null
+ */
+function aa_get_affiliate_by_user_id($user_id) {
+    global $wpdb;
+    
+    $table_name = $wpdb->prefix . 'aa_affiliates';
+    
+    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    $affiliate_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_name WHERE user_id = %d", $user_id));
+    
+    if (!$affiliate_id) {
+        return null;
+    }
+    
+    return new \AffiliateAssets\Includes\Class_Affiliate($affiliate_id);
+}
+
+/**
+ * Count visits by affiliate ID.
+ *
+ * @param int $affiliate_id Affiliate ID.
+ * @return int
+ */
+function aa_count_visits_by_affiliate($affiliate_id) {
+    global $wpdb;
+    
+    $table_name = $wpdb->prefix . 'aa_visits';
+    
+    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    return (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE affiliate_id = %d", $affiliate_id));
+}
+
+/**
+ * Count conversions by affiliate ID.
+ *
+ * @param int $affiliate_id Affiliate ID.
+ * @return int
+ */
+function aa_count_conversions_by_affiliate($affiliate_id) {
+    global $wpdb;
+    
+    $table_name = $wpdb->prefix . 'aa_visits';
+    
+    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    return (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE affiliate_id = %d AND is_converted = 1", $affiliate_id));
+}
+
+/**
+ * Get QR code URL for display.
+ *
+ * @param string $referral_url Referral URL.
+ * @return string
+ */
+function aa_get_qr_code_url($referral_url) {
+    return add_query_arg(array(
+        'aa_action' => 'qr_code',
+        'url' => base64_encode($referral_url),
+    ), admin_url('admin-ajax.php'));
+}
+
+/**
+ * Get QR code download URL.
+ *
+ * @param string $referral_url Referral URL.
+ * @param string $format Format (png or svg).
+ * @return string
+ */
+function aa_get_qr_code_download_url($referral_url, $format = 'png') {
+    return add_query_arg(array(
+        'aa_action' => 'download_qr',
+        'url' => base64_encode($referral_url),
+        'format' => $format,
+    ), admin_url('admin-ajax.php'));
+}

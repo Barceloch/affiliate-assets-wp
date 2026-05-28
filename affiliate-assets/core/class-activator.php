@@ -43,10 +43,10 @@ class Class_Activator {
         $table_name = $wpdb->prefix . 'aa_affiliates';
         
         $sql = "CREATE TABLE $table_name (
-            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            id BIGINT UNSIGNED AUTO_INCREMENT,
             user_id BIGINT UNSIGNED NOT NULL,
             status ENUM('pending', 'active', 'inactive', 'rejected') DEFAULT 'pending',
-            referral_code VARCHAR(50) NOT NULL UNIQUE,
+            referral_code VARCHAR(50) NOT NULL,
             referral_url TEXT,
             payment_email VARCHAR(255),
             website_url VARCHAR(255),
@@ -54,7 +54,9 @@ class Class_Activator {
             registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
             approved_date DATETIME NULL,
             notes TEXT,
+            PRIMARY KEY (id),
             UNIQUE KEY uk_user (user_id),
+            UNIQUE KEY uk_referral_code (referral_code),
             INDEX idx_status (status),
             INDEX idx_referral_code (referral_code)
         ) $charset_collate;";
@@ -72,7 +74,7 @@ class Class_Activator {
         $table_name = $wpdb->prefix . 'aa_visits';
         
         $sql = "CREATE TABLE $table_name (
-            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            id BIGINT UNSIGNED AUTO_INCREMENT,
             affiliate_id BIGINT UNSIGNED NOT NULL,
             url TEXT NOT NULL,
             ip VARCHAR(45),
@@ -82,6 +84,7 @@ class Class_Activator {
             date DATETIME DEFAULT CURRENT_TIMESTAMP,
             is_converted TINYINT(1) DEFAULT 0,
             reference INT(11) NULL,
+            PRIMARY KEY (id),
             INDEX idx_affiliate (affiliate_id),
             INDEX idx_date (date),
             INDEX idx_converted (is_converted)
@@ -100,7 +103,7 @@ class Class_Activator {
         $table_name = $wpdb->prefix . 'aa_commissions';
         
         $sql = "CREATE TABLE $table_name (
-            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            id BIGINT UNSIGNED AUTO_INCREMENT,
             affiliate_id BIGINT UNSIGNED NOT NULL,
             order_id BIGINT UNSIGNED NOT NULL,
             amount DECIMAL(10,2) NOT NULL DEFAULT 0.00,
@@ -112,6 +115,7 @@ class Class_Activator {
             notes TEXT,
             created_date DATETIME DEFAULT CURRENT_TIMESTAMP,
             paid_date DATETIME NULL,
+            PRIMARY KEY (id),
             INDEX idx_affiliate (affiliate_id),
             INDEX idx_order (order_id),
             INDEX idx_status (status)

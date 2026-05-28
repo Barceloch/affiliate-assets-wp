@@ -73,8 +73,8 @@ function aa_init_plugin() {
         return;
     }
     
-    // Initialize core
-    $plugin = new AffiliateAssets\Core\Class_Core();
+    // Initialize core using singleton pattern
+    $plugin = AffiliateAssets\Core\Class_Core::get_instance();
     $plugin->run();
 }
 
